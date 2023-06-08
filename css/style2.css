@@ -1,10 +1,16 @@
+.tombol {
+  margin-top: -80px;
+  margin-bottom: 20px;
+}
+
 /* header  */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-input[type="text"]{
+
+input[type="text"] {
   font-family: 'Poppins';
 }
 
@@ -13,9 +19,11 @@ input[type="text"]{
   margin-bottom: 50px;
   font-family: 'Reem Kufi Fun', sans-serif;
 }
-::placeholder{
+
+::placeholder {
   font-family: 'Poppins';
 }
+
 .wrapper {
   max-width: 600px;
   margin: 0 auto;
@@ -28,8 +36,8 @@ textarea {
   margin-bottom: 15px;
   padding: 15px;
 }
-.wrapper input[type="number"]
-{
+
+.wrapper input[type="number"] {
   text-indent: 1em;
 }
 
@@ -244,13 +252,13 @@ html {
 }
 
 /* .row {
-  --bs-gutter-x: 1.5rem;
-  --bs-gutter-y: 0;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: calc(-1 * var(--bs-gutter-y));
-  margin-right: calc(-0.5 * var(--bs-gutter-x));
-  margin-left: calc(-0.5 * var(--bs-gutter-x));
+--bs-gutter-x: 1.5rem;
+--bs-gutter-y: 0;
+display: flex;
+flex-wrap: wrap;
+margin-top: calc(-1 * var(--bs-gutter-y));
+margin-right: calc(-0.5 * var(--bs-gutter-x));
+margin-left: calc(-0.5 * var(--bs-gutter-x));
 } */
 
 .container {
@@ -311,7 +319,7 @@ html {
   overflow: hidden;
 }
 
-.play{
+.play {
   width: 100%;
   margin-top: 70px;
 }
@@ -390,7 +398,7 @@ a {
 
 /* Menu  */
 
-.tombol{
+.tombol {
   margin-top: -40px;
   margin-bottom: 40px;
 }
@@ -413,7 +421,7 @@ a {
 
 .img-fluid {
   width: 100%;
-  height: 300px;
+  height: 250px;
   border-radius: 4%;
   transition: .3s all;
   filter: brightness(.7);
@@ -426,7 +434,7 @@ a {
   /* -webkit-box-shadow: 0 0 10px #ccc; */
   /* box-shadow: 0 0 10px #ccc; */
   border-radius: 4%;
-  width: 200px;
+  width: 150px;
 }
 
 .nama {
@@ -481,10 +489,11 @@ a {
   color: #ffffff;
 }
 
-.pesan{
+.pesan {
   background: #FDBE34;
 }
-.pesan:hover{
+
+.pesan:hover {
   background: var(--color2);
   /* color: ; */
 }
@@ -501,47 +510,48 @@ a {
   /* filter: brightness(1); */
 }
 
-		.pc {
-			display: block;
-			font-family: 'magra';
-		}
+.pc {
+  display: block;
+  font-family: 'magra';
+}
 
-		.hp {
-			display: none;
-			font-family: 'magra';
-		}
+.hp {
+  display: none;
+  font-family: 'magra';
+}
 
-		@media only screen and (max-width:600px) {
-			.pc {
-				display: none;
-			}
-		}
+@media only screen and (max-width:600px) {
+  .pc {
+    display: none;
+  }
+}
 
-		@media only screen and (max-width:600px) {
-			.hp {
-				display: block;
-			}
-		}
+@media only screen and (max-width:600px) {
+  .hp {
+    display: block;
+  }
+}
 
-    
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
 
-    h3 {
-        font-family: 'Reem Kufi Fun', sans-serif;
-    }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
-    th {
-        font-family: 'Poppins';
-    }
+h3 {
+  font-family: 'Reem Kufi Fun', sans-serif;
+}
 
-    td {
-        font-family: 'Poppins';
-    }
-    button {
+th {
+  font-family: 'Poppins';
+}
+
+td {
+  font-family: 'Poppins';
+}
+
+button {
   background-color: #fff;
   border: 1px solid #25d366;
   padding: 5px;
@@ -553,8 +563,8 @@ a {
   border-radius: 0.4em;
   justify-content: end;
   align-items: end;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  /* margin-top: 50px;
+margin-bottom: 50px; */
 }
 
 button p {
@@ -589,5 +599,5 @@ button:hover svg {
 }
 
 button:hover {
-  background-color: #25d366;
+  /* background-color: #25d366; */
 }

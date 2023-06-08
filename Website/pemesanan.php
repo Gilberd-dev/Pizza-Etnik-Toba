@@ -34,8 +34,8 @@ if (isset($_POST['kirim'])) {
 }
 include_once('koneksi/koneksi.php');
 if (isset($_GET['error'])) {
-    $error_message = $_GET['error'];
-    // Tampilkan pesan umpan balik kepada pengguna
+	$error_message = $_GET['error'];
+	// Tampilkan pesan umpan balik kepada pengguna
 	echo '<script>alert("' . $error_message . '");</script>';
 }
 ?>
@@ -52,7 +52,6 @@ if (isset($_GET['error'])) {
 
 	<!-- Bootstrap CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-	<!-- <link rel="stylesheet" href="../css/style2.css"> -->
 	<link rel="stylesheet" href="../css/style2.css">
 	<link rel="stylesheet" href="../css/responsive.css">
 	<link rel="stylesheet" href="../css/navbar.css">
@@ -75,13 +74,6 @@ if (isset($_GET['error'])) {
 			}
 		}
 	</script>
-	<style>
-		.tombol{
-  margin-top: -80px;
-  margin-bottom: 20px;
-}
-
-	</style>
 
 </head>
 
@@ -138,7 +130,7 @@ if (isset($_GET['error'])) {
 									$result_set = $koneksi->query($query);
 									while ($row = $result_set->fetch_assoc()) {
 									?>
-										<div class="col-lg-4 col-md-6 special-grid drinks">
+										<div class="col-lg-3 col-md-6 col-6 special-grid drinks">
 											<div class="gallery-single fix">
 												<img src="../pictures/<?php echo $row['gambar_produk']; ?>" class="img-fluid" alt="Image" />
 												<div class="why-text">
@@ -195,7 +187,7 @@ if (isset($_GET['error'])) {
 									$result_set = $koneksi->query($query);
 									while ($row = $result_set->fetch_assoc()) {
 									?>
-										<div class="col-lg-4 col-md-6 special-grid drinks">
+										<div class="col-lg-3 col-md-6 col-6 special-grid drinks">
 											<div class="gallery-single fix">
 												<img src="../pictures/<?php echo $row['gambar_produk']; ?>" class="img-fluid" alt="Image" />
 												<div class="why-text">
@@ -213,7 +205,6 @@ if (isset($_GET['error'])) {
 										</div>
 									<?php } ?>
 								</div>
-
 							</div>
 							<div class="tab-pane fade" id="v-pills-minuman" role="tabpanel" aria-labelledby="v-pills-minuman-tab">
 								<div class="row">
@@ -222,7 +213,7 @@ if (isset($_GET['error'])) {
 									$result_set = $koneksi->query($query);
 									while ($row = $result_set->fetch_assoc()) {
 									?>
-										<div class="col-lg-4 col-md-6 special-grid drinks">
+										<div class="col-lg-3 col-md-6 col-6 special-grid drinks">
 											<div class="gallery-single fix">
 												<img src="../pictures/<?php echo $row['gambar_produk']; ?>" class="img-fluid" alt="Image" />
 												<div class="why-text">
@@ -248,7 +239,7 @@ if (isset($_GET['error'])) {
 									$result_set = $koneksi->query($query);
 									while ($row = $result_set->fetch_assoc()) {
 									?>
-										<div class="col-lg-4 col-md-6 special-grid drinks">
+										<div class="col-lg-3 col-md-6 col-6 special-grid drinks">
 											<div class="gallery-single fix">
 												<img src="../pictures/<?php echo $row['gambar_produk']; ?>" class="img-fluid" alt="Image" />
 												<div class="why-text">
@@ -287,10 +278,10 @@ if (isset($_GET['error'])) {
 				} elseif (isset($_GET['kurangi']) && is_numeric($_GET['kurangi'])) {
 					if (isset($_SESSION['chart'][$_GET['kurangi']])) {
 						$_SESSION['chart'][$_GET['kurangi']]--;
-					if($_SESSION['chart'][$_GET['kurangi']]<=0 ){
-						unset ($_SESSION['chart'][$_GET['kurangi']]);
+						if ($_SESSION['chart'][$_GET['kurangi']] <= 0) {
+							unset($_SESSION['chart'][$_GET['kurangi']]);
+						}
 					}
-				  }
 				} elseif (isset($_GET['hapus']) && is_numeric($_GET['hapus'])) {
 					if (isset($_SESSION['chart'][$_GET['hapus']])) {
 						unset($_SESSION['chart'][$_GET['hapus']]);
