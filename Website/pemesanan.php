@@ -340,7 +340,8 @@ if (isset($_GET['error'])) {
 				<br><br><br>
 				<p class="pilih" id="elemen"><em>*Pilih menu terlebih dahulu sebelum mengisi formulir pemesanan</em></p>
 
-				<h2>Formulir Pemesanan</h2>
+				<h2 style="font-family: 'Reem Kufi Fun', sans-serif;">Formulir Pemesanan</h2>
+				<br>
 				<form action="checkout.php" method="post">
 					<div class="wrapper">
 						<input type="text" name="nama" id="" required placeholder="Nama Anda">
