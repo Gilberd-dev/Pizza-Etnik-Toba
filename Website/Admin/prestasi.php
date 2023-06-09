@@ -54,6 +54,7 @@ include_once('../koneksi/koneksi.php');
 
 
                         <!-- Table with stripped rows -->
+                        <div class="table-responsive">
                         <table class="table datatable">
                             <thead>
                                 <tr>
@@ -71,10 +72,11 @@ include_once('../koneksi/koneksi.php');
                                 $result_set = $koneksi->query($query);
                                 while ($row = $result_set->fetch_assoc()) {
                                 ?>
+                                
                                     <tr>
                                         <td><?= $no; ?></td>
                                         <td><?= $row['judul_prestasi']; ?></td>
-                                        <td><?= $row['deskripsi_prestasi']; ?></td>
+                                        <td><?= substr($row['deskripsi_prestasi'], 0, 50); ?>...</td>
                                         <td><img src="../../pictures/<?php echo $row['gambar_prestasi']; ?>" style="width:100px;"></td>
                                         <td>
                                             <a href="edit-prestasi.php?id=<?php echo $row['id_prestasi']; ?>&gambar=<?php echo $row['gambar_prestasi']; ?>"><button type="button" class="btn btn-info rounded-pill">Edit</button></a>
@@ -85,16 +87,7 @@ include_once('../koneksi/koneksi.php');
                                 } ?>
                             </tbody>
                         </table>
-                        <!-- End Table with stripped rows -->
-                        <!-- <nav aria-label="Page navigation example">
-                            <ul class="pagination">
-                              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                              <li class="page-item"><a class="page-link" href="#">1</a></li>
-                              <li class="page-item"><a class="page-link" href="#">2</a></li>
-                              <li class="page-item"><a class="page-link" href="#">3</a></li>
-                              <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                            </ul>
-                          </nav>End Basic Pagination -->
+                        </div>
 
                     </div>
                 </div>

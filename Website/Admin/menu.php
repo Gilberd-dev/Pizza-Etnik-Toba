@@ -25,6 +25,7 @@ include_once('../koneksi/koneksi.php');
     <link href="vendor/simple-datatables/style.css" rel="stylesheet">
     <link href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
 </head>
 <?php include 'header.php' ?>
 
@@ -86,49 +87,51 @@ include_once('../koneksi/koneksi.php');
 
                         <!-- Table with stripped rows -->
                         <div id="conatiner">
-                            <table class="table datatable">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">No.</th>
-                                        <th scope="col">Nama Produk</th>
-                                        <th scope="col">Harga Produk</th>
-                                        <th scope="col">Deskripsi Produk</th>
-                                        <th scope="col">Gambar Produk</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    $no = 1; //variabel untuk membuat nomor urut
-                                    if (mysqli_num_rows($result_set) > 0) {
-                                        while ($row = mysqli_fetch_assoc($result_set)) {
-                                            $limitedData = substr($row['deskripsi_produk'], 0, 50);
-                                    ?>
-                                            <tr>
-                                                <td><?= $no; ?></td>
-                                                <td><?= $row['nama_produk']; ?></td>
-                                                <td>Rp <?= number_format($row['harga_produk'], 0, ',', '.'); ?></td>
-                                                <td><?= $limitedData ?>...</td>
-                                                <!-- <td><?= $row['kategori_produk']; ?></td> -->
-                                                <td><img src="../../pictures/<?php echo $row['gambar_produk']; ?>" style="width:120px;"></td>
-                                                <td><?= $row['status_produk']; ?></td>
-                                                <td>
-                                                    <!-- <button type="button" class="btn btn-success rounded-pill">Nonaktifkan</button>
+                            <div class="table-responsive">
+                                <table class="table datatable">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">No.</th>
+                                            <th scope="col">Nama Produk</th>
+                                            <th scope="col">Harga Produk</th>
+                                            <th scope="col">Deskripsi Produk</th>
+                                            <th scope="col">Gambar Produk</th>
+                                            <th scope="col">Status</th>
+                                            <th scope="col">Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $no = 1; //variabel untuk membuat nomor urut
+                                        if (mysqli_num_rows($result_set) > 0) {
+                                            while ($row = mysqli_fetch_assoc($result_set)) {
+                                                $limitedData = substr($row['deskripsi_produk'], 0, 50);
+                                        ?>
+                                                <tr>
+                                                    <td><?= $no; ?></td>
+                                                    <td><?= $row['nama_produk']; ?></td>
+                                                    <td>Rp <?= number_format($row['harga_produk'], 0, ',', '.'); ?></td>
+                                                    <td><?= $limitedData ?>...</td>
+                                                    <!-- <td><?= $row['kategori_produk']; ?></td> -->
+                                                    <td><img src="../../pictures/<?php echo $row['gambar_produk']; ?>" style="width:120px;"></td>
+                                                    <td><?= $row['status_produk']; ?></td>
+                                                    <td>
+                                                        <!-- <button type="button" class="btn btn-success rounded-pill">Nonaktifkan</button>
                                         <button type="button" class="btn btn-danger rounded-pill">Aktifkan</button> -->
-                                                    <a href="edit-menu.php?id=<?php echo $row['id_produk']; ?>&gambar=<?php echo $row['gambar_produk']; ?>"><button type="button" class="btn btn-info rounded-pill">Edit</button></a>
-                                                    <?php if ($row['status_produk'] == 'Aktif') { ?>
-                                                        <a href="status_menu.php?id=<?php echo $row['id_produk']; ?>&status='Nonaktif'"><button type="button" class="btn btn-danger rounded-pill">Nonaktifkan</button></a>
-                                                    <?php } else { ?>
-                                                        <a href="status_menu.php?id=<?php echo $row['id_produk']; ?>&status='Aktif'"><button type="button" class="btn btn-success rounded-pill">Aktifkan</button></a>
-                                                    <?php } ?>
-                                                </td>
-                                            </tr>
-                                    <?php $no++;
-                                        }
-                                    } ?>
-                                </tbody>
-                            </table>
+                                                        <a href="edit-menu.php?id=<?php echo $row['id_produk']; ?>&gambar=<?php echo $row['gambar_produk']; ?>"><button type="button" class="btn btn-info rounded-pill">Edit</button></a>
+                                                        <?php if ($row['status_produk'] == 'Aktif') { ?>
+                                                            <a href="status_menu.php?id=<?php echo $row['id_produk']; ?>&status='Nonaktif'"><button type="button" class="btn btn-danger rounded-pill">Nonaktifkan</button></a>
+                                                        <?php } else { ?>
+                                                            <a href="status_menu.php?id=<?php echo $row['id_produk']; ?>&status='Aktif'"><button type="button" class="btn btn-success rounded-pill">Aktifkan</button></a>
+                                                        <?php } ?>
+                                                    </td>
+                                                </tr>
+                                        <?php $no++;
+                                            }
+                                        } ?>
+                                    </tbody>
+                                </table>
+                            </div>
 
                         </div>
                     </div>

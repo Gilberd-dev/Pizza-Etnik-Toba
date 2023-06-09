@@ -85,10 +85,16 @@ session_start();
                                     </select>
                                 </div>
                             </div>
-                            <div class="row mb-3">
+                            <!-- <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Deskripsi Produk</label>
                                 <div class="col-sm-10">
                                     <textarea rows="5" cols="52" name="deskripsi"></textarea>
+                                </div>
+                            </div> -->
+                            <div class="row mb-3">
+                                <label for="inputPassword" class="col-sm-2 col-form-label">Deskripsi Produk</label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" style="height: 100px" name="deskripsi"></textarea>
                                 </div>
                             </div>
                             <div class="row mb-3">

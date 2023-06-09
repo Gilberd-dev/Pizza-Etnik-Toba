@@ -53,6 +53,7 @@ include_once('../koneksi/koneksi.php');
 
 
                         <!-- Table with stripped rows -->
+                        <div class="table-responsive">
                         <table class="table datatable">
                             <thead>
                                 <tr>
@@ -76,14 +77,14 @@ include_once('../koneksi/koneksi.php');
                                         <td><?= $no; ?></td>
                                         <td><?= $row['nama_pengunjung']; ?></td>
                                         <td><?= $row['email_pengunjung']; ?></td>
-                                        <td><?= $row['teks_masukan']; ?></td>
+                                        <td><?= substr($row['teks_masukan'], 0, 50); ?>...</td>
                                         <td> <?php
                                                 $media_type = mime_content_type('../../pictures/' . $row['gambar_video_masukan']);
                                                 if (strpos($media_type, 'image') !== false) { ?>
-                                                <img src="../../pictures/<?php echo $row['gambar_video_masukan'] ?>" class="card-img" alt="...">
+                                                <img src="../../pictures/<?php echo $row['gambar_video_masukan'] ?>" class="card-img" style="width: 150px;" alt="...">
                                             <?php
                                                 } else if (strpos($media_type, 'video') !== false) { ?>
-                                                <video controls class="card-img">
+                                                <video controls class="card-img"  style="width: 150px;" >
                                                     <source src="../../pictures/<?php echo $row['gambar_video_masukan'] ?>" type="video/mp4">
                                                 </video>
                                             <?php } ?>
@@ -101,16 +102,7 @@ include_once('../koneksi/koneksi.php');
                                 } ?>
                             </tbody>
                         </table>
-                        <!-- End Table with stripped rows -->
-                        <!-- <nav aria-label="Page navigation example">
-                            <ul class="pagination">
-                              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                              <li class="page-item"><a class="page-link" href="#">1</a></li>
-                              <li class="page-item"><a class="page-link" href="#">2</a></li>
-                              <li class="page-item"><a class="page-link" href="#">3</a></li>
-                              <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                            </ul>
-                          </nav>End Basic Pagination -->
+                        </div>
 
                     </div>
                 </div>

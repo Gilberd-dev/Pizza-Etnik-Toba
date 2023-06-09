@@ -108,8 +108,8 @@
 									while ($row = $result_set->fetch_assoc()) {
 									?>
 										<div class="col-lg-3 col-md-6 special-grid drinks">
-											<div class="gallery-single fix">
-												<img src="../pictures/<?php echo $row['gambar_produk']; ?>" class="img-fluid" alt="Image" />
+											<div class="gallery-single fix" style="width: 200px;">
+												<img src="../pictures/<?php echo $row['gambar_produk']; ?>" class="img-fluid" style="height: 300px;" alt="Image" />
 												<div class="why-text">
 													<h4><?php echo  $row['nama_produk']; ?></h4>
 													<hr style="color:white;">
@@ -161,8 +161,8 @@
 									while ($row = $result_set->fetch_assoc()) {
 									?>
 										<div class="col-lg-3 col-md-6 special-grid drinks">
-											<div class="gallery-single fix">
-												<img src="../pictures/<?php echo $row['gambar_produk']; ?>" class="img-fluid" alt="Image" />
+											<div class="gallery-single fix" style="width: 200px;">
+												<img src="../pictures/<?php echo $row['gambar_produk']; ?>" class="img-fluid" style="height: 300px;" alt="Image" />
 												<div class="why-text">
 													<h4><?php echo  $row['nama_produk']; ?></h4>
 													<hr style="color: white;">
@@ -185,8 +185,8 @@
 									while ($row = $result_set->fetch_assoc()) {
 									?>
 										<div class="col-lg-3 col-md-6 special-grid drinks">
-											<div class="gallery-single fix">
-												<img src="../pictures/<?php echo $row['gambar_produk']; ?>" class="img-fluid" alt="Image" />
+											<div class="gallery-single fix" style="width: 200px;">
+												<img src="../pictures/<?php echo $row['gambar_produk']; ?>" class="img-fluid" style="height: 300px;" alt="Image" />
 												<div class="why-text">
 													<h4><?php echo  $row['nama_produk']; ?></h4>
 													<hr style="color:white;">
@@ -207,8 +207,8 @@
 									while ($row = $result_set->fetch_assoc()) {
 									?>
 										<div class="col-lg-3 col-md-6 special-grid drinks">
-											<div class="gallery-single fix">
-												<img src="../pictures/<?php echo $row['gambar_produk']; ?>" class="img-fluid" alt="Image" />
+											<div class="gallery-single fix" style="width: 200px;">
+												<img src="../pictures/<?php echo $row['gambar_produk']; ?>" class="img-fluid"  style="height: 300px;"alt="Image" />
 												<div class="why-text">
 													<h4><?php echo  $row['nama_produk']; ?></h4>
 													<hr style="color:white;">
