@@ -108,6 +108,9 @@ if (isset($_GET['error'])) {
 					<br><br><br>
 					<div class="col-12">
 						<p class="pc"><em>*Arahkan kursor ke gambar produk untuk melihat detail produk</em></p>
+						<div class="hp" style="background-color: #CCFFBD;">
+							<p>Produk yang telah anda pilih akan tampil di <a href="#myElement"><b><u> Daftar Pesanan</u> </b></a> </p>
+						</div>
 						<p class="hp"><em>*Ketuk gambar produk untuk melihat detail produk</em></p>
 						<div class="tab-content" id="v-pills-tabContent">
 							<div class="tab-pane fade show active" id="v-pills-semua" role="tabpanel" aria-labelledby="v-pills-semua-tab">
