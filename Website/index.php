@@ -21,12 +21,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kalam&display=swap" rel="stylesheet">
 
-    <style>
-        body{
-            overflow-x: hidden;
-        }
-    </style>
-
 </head>
 
 <body>

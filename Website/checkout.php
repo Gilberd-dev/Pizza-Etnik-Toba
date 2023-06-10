@@ -60,10 +60,7 @@ if (isset($_POST['page']) && $_POST['page'] == 'preview') {
 <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun:wght@600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 <style>
-    
-.kirim:hover{
-  background-color: #25d366;
-}
+
 </style>
 
 

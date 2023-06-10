@@ -194,3 +194,26 @@ input[type=file]::file-selector-button:hover {
 background: #0d45a5;
 }
 
+input[type=text]{
+  font-family: 'Poppins';
+}
+
+input[type=email]{
+  font-family: 'Poppins';
+}
+
+textarea{
+  font-family: 'Poppins';
+  text-indent: 0.5em;
+}
+
+.tulis{
+    position: relative; 
+    left: 76.5%;
+}
+
+@media screen and  (max-width:533px){
+    .tulis{
+        left: 55%;
+    }
+}
