@@ -31,6 +31,17 @@ textarea{
   font-family: 'Poppins';
   text-indent: 0.5em;
 }
+
+.tulis{
+    position: relative; 
+    left: 76.5%;
+}
+
+@media screen and  (max-width:533px){
+    .tulis{
+        left: 55%;
+    }
+}
     </style>
 </head>
 
@@ -41,10 +52,7 @@ textarea{
     <main>
         <div id="form_masukan">
             <br><br><br>
-
-            <button type="button" class="btn btn-warning" id="tulis_masukan" style="  position: relative;
-  left: 76.5%;">Tulis Masukan</button>
-
+            <button type="button" class="btn btn-warning tulis" id="tulis_masukan" >Tulis Masukan</button>
         </div>
         <center>
             <h1 style="font-family: 'Reem Kufi Fun', sans-serif;">Apa Pendapat Pelanggan?</h1>

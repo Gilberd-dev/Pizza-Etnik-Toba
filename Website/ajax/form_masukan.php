@@ -6,6 +6,7 @@
 
      </center>
      <br><br>
+     <center>
      <form role="form" action="feedback_proses.php" method="POST" enctype="multipart/form-data">
          <div class="row">
              <div class="column nama col-lg-4">
@@ -36,3 +37,4 @@
          </div>
  </div>
  </form>
+ </center>
