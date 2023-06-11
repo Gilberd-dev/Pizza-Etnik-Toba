@@ -62,6 +62,7 @@
                     <div class="col-md-10">
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $row['nama_pengunjung'] ?></h5>
+                            <hr>
                             <p class="card-text"><?php echo  $row['teks_masukan'] ?></p>
                             <p class="card-text"><small class="text-muted"><?php echo $row['tanggal_post_masukan'] ?></small></p>
                         </div>

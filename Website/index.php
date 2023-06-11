@@ -40,7 +40,7 @@
         <br>
         <center>
             <div>
-            <h1 style="font-family: 'Reem Kufi Fun', sans-serif;font-size: 300%; letter-spacing: 1px; font-weight: 300;">BERANDA</h1>
+                <h1 class="judul-beranda">BERANDA</h1>
             </div>
         </center>
         <br>
@@ -127,7 +127,7 @@
         </div>
         <br> <br>
         <center>
-        <a href="../Website/feedback.php"><button type="button" class="lain btn btn-outline-warning">Lihat Lainnya</button></a>
+            <a href="../Website/feedback.php"><button type="button" class="lain btn btn-outline-warning">Lihat Lainnya</button></a>
             <!-- <button type="button" class="btn btn-outline-warning"><a class="lain" href="../Website/feedback.php">Lihat Lainnya</a></button> -->
         </center>
         <br>

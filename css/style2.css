@@ -2,6 +2,38 @@ body{
   overflow-x: hidden;
 }
     
+.carousel-control-prev,
+.carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.carousel-control-prev {
+    left: 0;
+}
+
+.carousel-control-next {
+    right: 0;
+}
+
+.judul-beranda{
+    font-family: 'Reem Kufi Fun', sans-serif;
+    font-size: 300%; 
+    letter-spacing: 1px; 
+    font-weight: 300;   
+}
+
+@media screen and (max-width: 600px) {
+    .judul-beranda {
+        font-size: 200%; /* Ubah ukuran font menjadi 200% pada layar dengan lebar maksimum 600px */
+    }
+}
+
+
+
+
 .kirim:hover{
   background-color: #25d366;
 }
