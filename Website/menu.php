@@ -53,7 +53,7 @@
 						</div>
 						<!-- Button trigger modal -->
 						<button type="button" style="height:auto; width: auto; font-family: 'Poppins';" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
-						<i class="fa-solid fa-circle-info"></i>Cara Pesan
+						<i class="fa-solid fa-circle-info"></i>Cara Pesan	
 						</button>
 
 						<!-- Modal -->

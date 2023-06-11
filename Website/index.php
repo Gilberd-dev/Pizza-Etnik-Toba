@@ -20,6 +20,38 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kalam&display=swap" rel="stylesheet">
+    <style>
+        
+
+.carousel-control-prev,
+.carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.carousel-control-prev {
+    left: 0;
+}
+
+.carousel-control-next {
+    right: 0;
+}
+
+.judul-beranda{
+    font-family: 'Reem Kufi Fun', sans-serif;
+    font-size: 300%; 
+    letter-spacing: 1px; 
+    font-weight: 300;   
+}
+
+@media screen and (max-width: 600px) {
+    .judul-beranda {
+        font-size: 200%; /* Ubah ukuran font menjadi 200% pada layar dengan lebar maksimum 600px */
+    }
+}
+    </style>
 
 </head>
 
