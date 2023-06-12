@@ -78,7 +78,12 @@ if (isset($_GET['error'])) {
 </head>
 
 <!-- header -->
-<?php include 'koneksi/header.php' ?>
+<body>
+
+<?php
+include 'koneksi/koneksi.php';
+
+include 'koneksi/header.php' ?>
 
 
 <!-- Start Menu -->
@@ -297,44 +302,44 @@ if (isset($_GET['error'])) {
 
 
 					echo '
-<h3>Daftar Pesanan</h3>
-<table class="table">
-<thead>
-<tr>
-<th>Nama Produk</th>
-<th>Jumlah</th>
-<th>Harga</th>
-<th>Aksi</th>
-</tr>
-</thead>
-<tbody>';
+							<h3>Daftar Pesanan</h3>
+							<table class="table">
+							<thead>
+							<tr>
+							<th>Nama Produk</th>
+							<th>Jumlah</th>
+							<th>Harga</th>
+							<th>Aksi</th>
+							</tr>
+							</thead>
+							<tbody>';
 					$jumlah = 0;
 					foreach ($_SESSION['chart'] as $id => $value) {
 						$query = "SELECT * FROM produk WHERE status_produk='aktif' AND id_produk = $id";
 						$result_set = $koneksi->query($query);
 						while ($row = $result_set->fetch_assoc()) {
 							echo '<tr><td>' . $row['nama_produk'] . '</td>
-    <td>' . $value . '</td>
-    <td class="text-right">Rp. ' . number_format($row['harga_produk'] * $value, 0, ',', '.') . '</td>
-    <td>
-	<a href="?tambah=' . $id . '" title="Tambah"><i class="fa-solid fa-circle-plus fa-xl"></i></a>
-    <a href="?kurangi=' . $id . '" title="Kurangi"><i class="fa-solid fa-circle-minus fa-xl"></i></a>
-    <a href="?hapus=' . $id . '" title="Hapus"><i class="fa-solid fa-circle-xmark fa-xl"></i></a>
-    </td>
-    </tr>';
+    						<td>' . $value . '</td>
+    						<td class="text-right">Rp. ' . number_format($row['harga_produk'] * $value, 0, ',', '.') . '</td>
+    						<td>
+							<a href="?tambah=' . $id . '" title="Tambah"><i class="fa-solid fa-circle-plus fa-xl"></i></a>
+    						<a href="?kurangi=' . $id . '" title="Kurangi"><i class="fa-solid fa-circle-minus fa-xl"></i></a>
+    						<a href="?hapus=' . $id . '" title="Hapus"><i class="fa-solid fa-circle-xmark fa-xl"></i></a>
+    						</td>
+    						</tr>';
 							$jumlah = $jumlah + ($row['harga_produk'] * $value);
 						}
 					}
 					echo '
-    <tr><td colspan = "2" class="text-right"><b>Total Harga</b></td>
-    <td class="text-right">Rp. ' . number_format($jumlah, 0, ',', '.') . '</td>
-<td></td>
+    						<tr><td colspan = "2" class="text-right"><b>Total Harga</b></td>
+    						<td class="text-right">Rp. ' . number_format($jumlah, 0, ',', '.') . '</td>
+							<td></td>
 
-    </tr>
-    </tbody>
-    </table>
-	<a href="?hapusall=ya"><button type="button" style="height:40px;width:auto;" class="btn btn-danger">Hapus Semua</button></a>
-	';
+    						</tr>
+    						</tbody>
+    						</table>
+							<a href="?hapusall=ya"><button type="button" style="height:40px;width:auto;" class="btn btn-danger">Hapus Semua</button></a>
+							';
 				}
 				?>
 				<br><br><br>
