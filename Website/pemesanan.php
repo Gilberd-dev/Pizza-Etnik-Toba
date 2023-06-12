@@ -81,12 +81,12 @@ if (isset($_GET['error'])) {
 <body>
 
 <?php
-include 'koneksi/koneksi.php';
 
 include 'koneksi/header.php' ?>
 
 
 <!-- Start Menu -->
+<main>
 <div class="menu-box">
 	<div class="container">
 		<div class="row">
@@ -362,6 +362,7 @@ include 'koneksi/header.php' ?>
 	</div>
 </div>
 </div>
+</main>
 
 
 
