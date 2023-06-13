@@ -15,7 +15,7 @@ if ($gambar_produk != "") {
   $file_size = $_FILES['gambar_video_masukan']['size']; // Ukuran file dalam bytes
   
   // Mengatur ukuran maksimum yang diizinkan (misalnya 5MB)
-  $max_file_size = 10 * 1024 * 1024; // 2 MB
+  $max_file_size = 10 * 1024 * 1024; // 5 MB
   
   // Memeriksa ukuran file
   if ($file_size > $max_file_size) {

@@ -35,7 +35,7 @@
 
         <div class="col-xl-6 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-7 px-lg-5" style="max-width:100%;">
           <br>
-          <h2 class="h2">Sejarah</h2>
+          <h2   class="h2">Sejarah</h2>
           <p style="color: black; text-align: center; padding: 0 0 140px 0;font-family: 'Poppins'; font-size:15px;">Toko Roti Pizza Etnik Toba beroperasi sejak tahun 2015 dengan keinginan untuk memajukan kuliner
             Toba.Pemilik toko memiliki ide untuk menciptakan variasi kuliner yang tak terlupakan bagi para tamu. Penikmat pizza
             ini tidak hanya warga lokal saja, bahkan tamu dari luar kota pun menyukainya. Keahlian suaminya sebagai seorang

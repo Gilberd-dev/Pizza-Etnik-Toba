@@ -66,7 +66,7 @@ session_start();
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Harga Produk</label>
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" min="0" name="harga">
+                                    <input type="number" class="form-control" min="1000" name="harga">
                                 </div>
                             </div>
                             <div class="row mb-3">
