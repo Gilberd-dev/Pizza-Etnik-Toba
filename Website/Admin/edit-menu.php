@@ -82,19 +82,19 @@ if (isset($_GET['id'])) {
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Nama Produk</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="nama" value="<?php echo $data['nama_produk'] ?>" >
+                                    <input type="text" class="form-control" name="nama" value="<?php echo $data['nama_produk'] ?>" required>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Harga Produk</label>
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" min="0" name="harga" value="<?php echo $data['harga_produk']; ?>" >
+                                    <input type="number" class="form-control" min="0" name="harga" value="<?php echo $data['harga_produk']; ?>" required>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputPassword" class="col-sm-2 col-form-label">Deskripsi</label>
                                 <div class="col-sm-10">
-                                    <textarea class="form-control" style="height: 100px" name="deskripsi"><?php echo $data['deskripsi_produk']; ?></textarea>
+                                    <textarea class="form-control" style="height: 100px" name="deskripsi" required><?php echo $data['deskripsi_produk']; ?></textarea>
                                 </div>
                             </div>
                             
@@ -113,7 +113,7 @@ if (isset($_GET['id'])) {
                             <select class="form-control" name="id_kategori">
                                 <!-- <option align = "center">---Pilih Kategori---</option> -->
                                 <?php
-                                $query = 'SELECT * FROM kategori';
+                                $query = "SELECT * FROM kategori WHERE status='Aktif'";
                                 $result_set = $koneksi->query($query);
                                 while ($kategori = $result_set->fetch_assoc()) {
                                     $selected = ($kategori['id_kategori'] == $data['id_kategori']) ? 'selected' : '';

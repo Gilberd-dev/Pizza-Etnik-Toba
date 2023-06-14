@@ -21,10 +21,17 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="promosi.php">
-                <i class="bi bi-bar-chart-fill"></i>
+                <i class="bi bi-columns-gap"></i>
                 <span>Promosi</span>
             </a>
         </li><!-- End F.A.Q Page Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="kategori.php">
+            <i class="bi bi-intersect"></i>
+                <span>Kategori</span>
+            </a>
+        </li><!-- End Contact Page Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="menu.php">

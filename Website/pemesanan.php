@@ -104,9 +104,15 @@ include 'koneksi/header.php' ?>
 						<div class="col-8">
 							<div class="nav nav-pills" id="v-pills-tab" role="tablist">
 								<a class="nav-link active" id="v-pills-semua-tab" data-toggle="pill" href="#v-pills-semua" role="tab" aria-controls="v-pills-semua" aria-selected="true">Semua</a>
-								<a class="nav-link" id="v-pills-makanan-tab" data-toggle="pill" href="#v-pills-makanan" role="tab" aria-controls="v-pills-makanan" aria-selected="true">Makanan</a>
-								<a class="nav-link" id="v-pills-minuman-tab" data-toggle="pill" href="#v-pills-minuman" role="tab" aria-controls="v-pills-minuman" aria-selected="false">Minuman</a>
-								<a class="nav-link" id="v-pills-roti-tab" data-toggle="pill" href="#v-pills-roti" role="tab" aria-controls="v-pills-roti" aria-selected="false">Roti dan Kue</a>
+								<?php
+							        $kategori_query = "SELECT * FROM kategori WHERE status ='aktif'";
+                                    $kategori_result = mysqli_query($koneksi, $kategori_query);
+                                    while ($kategori = mysqli_fetch_assoc($kategori_result)) {
+										$kategori_type = str_replace(' ', '', $kategori['nama_kategori']);
+										$kategori_name = $kategori['nama_kategori'];
+										?>
+							<a class="nav-link" id="v-pills-<?php echo $kategori_type;?>-tab" data-toggle="pill" href="#v-pills-<?php echo $kategori_type;?>" role="tab" aria-controls="v-pills-<?php echo $kategori_type;?>" aria-selected="false"><?php echo $kategori_name;?></a>
+						<?php } ?>
 							</div>
 						</div>
 					</center>
@@ -188,10 +194,18 @@ include 'koneksi/header.php' ?>
 								</ul>
 
 							</div>
-							<div class="tab-pane fade show" id="v-pills-makanan" role="tabpanel" aria-labelledby="v-pills-makanan-tab">
+							<?php
+							        $kategori_query = "SELECT * FROM kategori";
+                                    $kategori_result = mysqli_query($koneksi, $kategori_query);
+                                    while ($kategori = mysqli_fetch_assoc($kategori_result)) {
+										$kategori_type = str_replace(' ', '', $kategori['nama_kategori']);
+										$kategori_id = $kategori['id_kategori'];
+										// $kategori_name = $kategori['nama_kategori'];
+										?>
+							<div class="tab-pane fade" id="v-pills-<?php echo $kategori_type;?>" role="tabpanel" aria-labelledby="v-pills-<?php echo $kategori_type;?>-tab">
 								<div class="row">
 									<?php
-									$query = 'SELECT * FROM produk WHERE status_produk="aktif" AND id_kategori=1';
+									$query = "SELECT * FROM produk WHERE status_produk='aktif' AND id_kategori=$kategori_id";
 									$result_set = $koneksi->query($query);
 									while ($row = $result_set->fetch_assoc()) {
 									?>
@@ -214,59 +228,7 @@ include 'koneksi/header.php' ?>
 									<?php } ?>
 								</div>
 							</div>
-							<div class="tab-pane fade" id="v-pills-minuman" role="tabpanel" aria-labelledby="v-pills-minuman-tab">
-								<div class="row">
-									<?php
-									$query = 'SELECT * FROM produk WHERE status_produk="aktif" AND id_kategori=2';
-									$result_set = $koneksi->query($query);
-									while ($row = $result_set->fetch_assoc()) {
-									?>
-										<div class="col-lg-3 col-md-6 col-6 special-grid drinks">
-											<div class="gallery-single fix">
-												<img src="../pictures/<?php echo $row['gambar_produk']; ?>" class="img-fluid" alt="Image" />
-												<div class="why-text">
-													<h4><?php echo  $row['nama_produk']; ?></h4>
-													<hr>
-													<p><?php echo  $row['deskripsi_produk']; ?></p>
-												</div>
-												<p class="nama"><i class="fa-solid fa-utensils" style="color: #272343; margin-right: 10px;"></i><?php echo  $row['nama_produk']; ?></p>
-												<p class="harga"> <i class="fa-solid fa-money-bill-wave" style="color: #272343; margin-right:10px;"></i>Rp <?php echo number_format($row['harga_produk'], 0, ',', '.'); ?></p>
-											</div>
-											<div class="tombol">
-												<i class="fa-solid fa-inbox"></i>
-												<a href="?pilih=<?php echo $row['id_produk']; ?>&jumlah=1"><button style="width:70px; height:auto;" type="button" class="btn btn-warning">Pilih</button></a>
-											</div>
-										</div>
-									<?php } ?>
-								</div>
-							</div>
-							<div class="tab-pane fade" id="v-pills-roti" role="tabpanel" aria-labelledby="v-pills-roti-tab">
-								<div class="row">
-									<?php
-									$query = 'SELECT * FROM produk WHERE status_produk="aktif" AND id_kategori=3';
-									$result_set = $koneksi->query($query);
-									while ($row = $result_set->fetch_assoc()) {
-									?>
-										<div class="col-lg-3 col-md-6 col-6 special-grid drinks">
-											<div class="gallery-single fix">
-												<img src="../pictures/<?php echo $row['gambar_produk']; ?>" class="img-fluid" alt="Image" />
-												<div class="why-text">
-													<h4><?php echo  $row['nama_produk']; ?></h4>
-													<hr>
-													<p><?php echo  $row['deskripsi_produk']; ?></p>
-												</div>
-												<p class="nama"><i class="fa-solid fa-utensils" style="color: #272343; margin-right: 10px;"></i><?php echo  $row['nama_produk']; ?></p>
-												<p class="harga"> <i class="fa-solid fa-money-bill-wave" style="color: #272343; margin-right:10px;"></i>Rp <?php echo number_format($row['harga_produk'], 0, ',', '.'); ?></p>
-											</div>
-											<div class="tombol">
-												<i class="fa-solid fa-inbox"></i>
-												<a href="?pilih=<?php echo $row['id_produk']; ?>&jumlah=1"><button style="width:70px; height:auto;" type="button" class="btn btn-warning">Pilih</button></a>
-											</div>
-
-										</div>
-									<?php } ?>
-								</div>
-							</div>
+							<?php } ?>
 						</div>
 					</div>
 				</div>

@@ -68,7 +68,7 @@ include_once('../koneksi/koneksi.php');
                                 <select class="form-control" id="filter" name="filter">
                                     <option value="">Semua</option>
                                     <?php
-                                    $kategori_query = "SELECT * FROM kategori";
+                                    $kategori_query = "SELECT * FROM kategori WHERE status='Aktif'";
                                     $kategori_result = mysqli_query($koneksi, $kategori_query);
                                     while ($kategori = mysqli_fetch_assoc($kategori_result)) {
                                         $kategori_id = $kategori['id_kategori'];
@@ -120,9 +120,9 @@ include_once('../koneksi/koneksi.php');
                                         <button type="button" class="btn btn-danger rounded-pill">Aktifkan</button> -->
                                                         <a href="edit-menu.php?id=<?php echo $row['id_produk']; ?>&gambar=<?php echo $row['gambar_produk']; ?>"><button type="button" class="btn btn-info rounded-pill">Edit</button></a>
                                                         <?php if ($row['status_produk'] == 'Aktif') { ?>
-                                                            <a href="status_menu.php?id=<?php echo $row['id_produk']; ?>&status='Nonaktif'"><button type="button" class="btn btn-danger rounded-pill">Nonaktifkan</button></a>
+                                                            <a href="status.php?id=<?php echo $row['id_produk']; ?>&status='Nonaktif'"><button type="button" class="btn btn-danger rounded-pill">Nonaktifkan</button></a>
                                                         <?php } else { ?>
-                                                            <a href="status_menu.php?id=<?php echo $row['id_produk']; ?>&status='Aktif'"><button type="button" class="btn btn-success rounded-pill">Aktifkan</button></a>
+                                                            <a href="status.php?id=<?php echo $row['id_produk']; ?>&status='Aktif'"><button type="button" class="btn btn-success rounded-pill">Aktifkan</button></a>
                                                         <?php } ?>
                                                     </td>
                                                 </tr>

@@ -84,13 +84,13 @@ session_start();
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Judul</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="judul" value="<?php echo $data['judul_prestasi']; ?>" >
+                                    <input type="text" class="form-control" name="judul" value="<?php echo $data['judul_prestasi']; ?>" required>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputPassword" class="col-sm-2 col-form-label">Deskripsi</label>
                                 <div class="col-sm-10">
-                                    <textarea class="form-control" style="height: 100px" name="deskripsi"><?php echo $data['deskripsi_prestasi']; ?></textarea>
+                                    <textarea class="form-control" style="height: 100px" name="deskripsi" required><?php echo $data['deskripsi_prestasi']; ?></textarea>
                                 </div>
                             </div>
                             

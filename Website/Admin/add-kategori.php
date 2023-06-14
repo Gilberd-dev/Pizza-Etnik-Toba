@@ -12,7 +12,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prestasi</title>
+    <title>Kategori</title>
     <link rel="stylesheet" href="style.css">
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -36,11 +36,11 @@ session_start();
 <main id="main" class="main">
 
     <div class="pagetitle">
-        <h1>Prestasi</h1>
+        <h1>Kategori</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                <li class="breadcrumb-item active">Prestasi</li>
+                <li class="breadcrumb-item active">Kategori</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
@@ -51,29 +51,16 @@ session_start();
 
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Tambah Prestasi</h5>
+                        <h5 class="card-title">Tambah Kategori</h5>
 
                         <!-- General Form Elements -->
-                        <form role="form" action="add-prestasi-proses.php?tabel=prestasi" method="POST" enctype="multipart/form-data">                            <div class="row mb-3">
-                                <label for="inputText" class="col-sm-2 col-form-label">Judul</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="judul" required>
-                                </div>
-                            </div>
+                        <form role="form" action="add-kategori-proses.php?tabel=kategori" method="POST" enctype="multipart/form-data">                            
                             <div class="row mb-3">
-                                <label for="inputPassword" class="col-sm-2 col-form-label">Deskripsi</label>
+                                <label for="inputText" class="col-sm-2 col-form-label">Nama</label>
                                 <div class="col-sm-10">
-                                    <textarea class="form-control" style="height: 100px" name="deskripsi" required></textarea>
+                                    <input type="text" class="form-control" name="nama" required>
                                 </div>
                             </div>
-                            
-                            <div class="row mb-3">
-                                <label for="inputNumber" class="col-sm-2 col-form-label" >Gambar Prestasi</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" type="file" id="formFile" name="gambar" required>
-                                </div>
-                            </div>
-                            
                             <div class="row mb-3">
 
                                 <div class="col-sm-10">

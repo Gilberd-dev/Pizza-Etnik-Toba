@@ -13,7 +13,7 @@ include_once('../koneksi/koneksi.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prestasi</title>
+    <title>Kategori Produk</title>
     <link href="../../Pictures/PET.png" rel="icon">
     <link rel="stylesheet" href="style.css">
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -35,11 +35,11 @@ include_once('../koneksi/koneksi.php');
 
 <main id="main" class="main">
     <div class="pagetitle">
-        <h1>Prestasi</h1>
+        <h1>Kategori Produk</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.php">Beranda</a></li>
-                <li class="breadcrumb-item active">Prestasi</li>
+                <li class="breadcrumb-item active">Kategori Produk</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
@@ -49,8 +49,8 @@ include_once('../koneksi/koneksi.php');
 
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Data Prestasi</h5>
-                        <a href="add-prestasi.php"><button type="button" class="btn btn-warning rounded-pill">Tambah</button></a>
+                        <h5 class="card-title">Data Kategori Produk</h5>
+                        <a href="add-kategori.php"><button type="button" class="btn btn-warning rounded-pill">Tambah</button></a>
 
 
                         <!-- Table with stripped rows -->
@@ -59,28 +59,30 @@ include_once('../koneksi/koneksi.php');
                             <thead>
                                 <tr>
                                     <th scope="col">No.</th>
-                                    <th scope="col">Judul</th>
-                                    <th scope="col">Deskripsi</th>
-                                    <th scope="col">Gambar Prestasi</th>
+                                    <th scope="col">Nama</th>
+                                    <th scope="col">Status</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
                                 $no = 1; //variabel untuk membuat nomor urut
-                                $query = 'SELECT * FROM prestasi ORDER BY id_prestasi DESC';
+                                $query = 'SELECT * FROM kategori';
                                 $result_set = $koneksi->query($query);
                                 while ($row = $result_set->fetch_assoc()) {
                                 ?>
                                 
                                     <tr>
                                         <td><?= $no; ?></td>
-                                        <td><?= $row['judul_prestasi']; ?></td>
-                                        <td><?= substr($row['deskripsi_prestasi'], 0, 50); ?>...</td>
-                                        <td><img src="../../pictures/<?php echo $row['gambar_prestasi']; ?>" style="width:100px;"></td>
+                                        <td><?= $row['nama_kategori']; ?></td>
+                                        <td><?= $row['status']; ?></td>
                                         <td>
-                                            <a href="edit-prestasi.php?id=<?php echo $row['id_prestasi']; ?>&gambar=<?php echo $row['gambar_prestasi']; ?>"><button type="button" class="btn btn-info rounded-pill">Edit</button></a>
-                                            <a href="hapus.php?id=<?php echo $row['id_prestasi']; ?>&gambar=<?php echo $row['gambar_prestasi']; ?>&tabel=prestasi" onclick="return confirm('Anda yakin akan menghapus data ini?')"><button type="button" class="btn btn-danger rounded-pill">Hapus</button>
+                                        <a href="edit-kategori.php?id=<?php echo $row['id_kategori']; ?>"><button type="button" class="btn btn-info rounded-pill">Edit</button></a>
+                                                        <?php if ($row['status'] == 'Aktif') { ?>
+                                                            <a href="status.php?id=<?php echo $row['id_kategori']; ?>&status_kategori='Nonaktif'"><button type="button" class="btn btn-danger rounded-pill">Nonaktifkan</button></a>
+                                                        <?php } else { ?>
+                                                            <a href="status.php?id=<?php echo $row['id_kategori']; ?>&status_kategori='Aktif'"><button type="button" class="btn btn-success rounded-pill">Aktifkan</button></a>
+                                                        <?php } ?>
                                         </td>
                                     </tr>
                                 <?php $no++;

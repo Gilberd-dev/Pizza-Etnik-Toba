@@ -69,7 +69,7 @@ include_once('../koneksi/koneksi.php');
                             <tbody>
                                 <?php
                                 $no = 1; //variabel untuk membuat nomor urut
-                                $query = 'SELECT * FROM masukan';
+                                $query = 'SELECT * FROM masukan ORDER BY id_masukan DESC';
                                 $result_set = $koneksi->query($query);
                                 while ($row = $result_set->fetch_assoc()) {
                                 ?>

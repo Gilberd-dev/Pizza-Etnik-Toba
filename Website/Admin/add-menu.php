@@ -60,23 +60,23 @@ session_start();
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Nama Produk</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="nama">
+                                    <input type="text" class="form-control" name="nama" required>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Harga Produk</label>
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" min="1000" name="harga">
+                                    <input type="number" class="form-control" min="1000" name="harga" required>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="kategori" class="col-sm-2 col-form-label">Kategori Produk</label>
                                 <div class="col-sm-10">
                                     <!-- <input type="text" class="form-control" name="kategori"> -->
-                                    <select class="form-control" name="id_kategori">
+                                    <select class="form-control" name="id_kategori" required>
                                     <option align = "center">---Pilih Kategori---</option>
                                         <?php
-                                        $query = 'SELECT * FROM kategori';
+                                        $query = "SELECT * FROM kategori WHERE status = 'Aktif'";
                                         $result_set = $koneksi->query($query);
                                         while ($data = $result_set->fetch_assoc()){
                                         
@@ -94,13 +94,13 @@ session_start();
                             <div class="row mb-3">
                                 <label for="inputPassword" class="col-sm-2 col-form-label">Deskripsi Produk</label>
                                 <div class="col-sm-10">
-                                    <textarea class="form-control" style="height: 100px" name="deskripsi"></textarea>
+                                    <textarea class="form-control" style="height: 100px" name="deskripsi" required></textarea>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputNumber" class="col-sm-2 col-form-label">Gambar Produk</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="file" id="formFile" name="gambar">
+                                    <input class="form-control" type="file" id="formFile" name="gambar" required>
                                 </div>
                             </div>
                             

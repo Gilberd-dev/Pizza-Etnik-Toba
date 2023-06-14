@@ -59,19 +59,19 @@ session_start();
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Judul</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="judul">
+                                    <input type="text" class="form-control" name="judul" required>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Deskripsi</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control"  name="deskripsi">
+                                    <input type="text" class="form-control"  name="deskripsi" required>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputNumber" class="col-sm-2 col-form-label">Gambar Sertifikat</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="file" id="formFile" name="gambar">
+                                    <input class="form-control" type="file" id="formFile" name="gambar" required>
                                 </div>
                             </div>
                             <div class="row mb-3">
