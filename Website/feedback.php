@@ -37,7 +37,7 @@
         <?php
         include_once('koneksi/koneksi.php');
         // untuk client interface
-        $query = "SELECT * FROM masukan WHERE status_masukan = 'Diizinkan'";
+        $query = "SELECT * FROM masukan WHERE status_masukan = 'Diizinkan' ORDER BY id_masukan DESC";
         $result_set = $koneksi->query($query);
         while ($row = $result_set->fetch_assoc()) {
         ?>

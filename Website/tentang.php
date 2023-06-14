@@ -152,15 +152,15 @@
         ?>
           <div class="accordion-item">
             <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $row['id'] ?>" aria-expanded="false" aria-controls="collapse<?php echo $row['id'] ?>">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $row['id_sertifikat'] ?>" aria-expanded="false" aria-controls="collapse<?php echo $row['id_sertifikat'] ?>">
                 <?php echo $row['judul_sertifikat'] ?>
               </button>
             </h2>
-            <div id="collapse<?php echo $row['id'] ?>" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div id="collapse<?php echo $row['id_sertifikat'] ?>" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
               <div class="accordion-body">
                 <div class="row">
                   <div class="col-lg-2">
-                    <img class="pres" src="../pictures/<?php echo $row['lambang_sertifikat'] ?>" alt="">
+                    <img class="pres" src="../pictures/<?php echo $row['gambar_sertifikat'] ?>" alt="">
                   </div>
                   <div class="col-lg-10">
                     <?php echo $row['deskripsi_sertifikat'] ?>
