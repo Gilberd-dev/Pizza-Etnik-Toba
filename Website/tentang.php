@@ -16,6 +16,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Magra&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Delius+Unicase&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun:wght@600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
   <!-- end of link css -->
  
 </head>
