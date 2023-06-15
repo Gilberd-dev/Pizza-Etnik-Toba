@@ -58,7 +58,7 @@
 						</div>
 						<!-- Button trigger modal -->
 						<button type="button" style="height:auto; width: auto; font-family: 'Poppins';" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
-						<i class="fa-solid fa-circle-info"></i>Cara Pesan	
+						<i class="fa-solid fa-circle-info"></i> Cara Pesan	
 						</button>
 
 						<!-- Modal -->
@@ -69,14 +69,17 @@
 										<h1 class="modal-title fs-5" id="exampleModalLabel" style="font-family: 'Reem Kufi Fun', sans-serif;">Petunjuk Pemesanan</h1>
 										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 									</div>
+									<!-- konten petunjuk pemesanan -->
 									<div class="modal-body">
-										<p>1. Tekan tombol <b>Pesan Sekarang</b></p>
-										<p>2. Pilih produk yang ingin dipesan</p>
-										<p>3. Isi formulir pemesanan dengan data asli</p>
-										<p>4. Tekan tombol <b>Periksa</b> untuk memeriksa pesanan</p>
-										<p>5. Pastikan <b>Daftar Pesanan</b> dan <b>Informasi Pembeli</b> sudah sesuai</p>
-										<p>6. Tekan tombol kirim, maka pesanan anda akan dilanjutkan di aplikasi WhatsApp</p>
-
+									<ol>
+										<?php
+										$query = 'SELECT * FROM petunjuk';
+										$result_set = $koneksi->query($query);
+										while ($row = $result_set->fetch_assoc()) {
+										?>
+										<li><?php echo $row['deskripsi'];?></li>
+										<?php }?>
+									</ol>
 									</div>
 									<div class="modal-footer">
 										<button type="button" style="height:40px; width: auto;" class="btn btn-primary" data-bs-dismiss="modal">Mengerti</button>

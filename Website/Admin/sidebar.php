@@ -41,6 +41,13 @@
         </li><!-- End Contact Page Nav -->
 
         <li class="nav-item">
+            <a class="nav-link collapsed" href="petunjuk.php">
+            <i class="bi bi-sign-turn-slight-right-fill"></i>
+                <span>Petunjuk Pemesanan</span>
+            </a>
+        </li><!-- End Contact Page Nav -->
+
+        <li class="nav-item">
             <a class="nav-link collapsed" href="prestasi.php">
                 <i class="bi bi-stars"></i>
                 <span>Prestasi</span>
