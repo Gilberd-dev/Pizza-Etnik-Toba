@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Jun 15, 2023 at 09:20 AM
+-- Generation Time: Jun 17, 2023 at 05:35 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -33,15 +33,16 @@ CREATE TABLE `admin` (
   `nomor_telepon_admin` varchar(13) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(250) NOT NULL,
-  `foto_admin` varchar(200) NOT NULL
+  `foto_admin` varchar(200) NOT NULL,
+  `email` varchar(255) NOT NULL
 ) ;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id_admin`, `nama_admin`, `nomor_telepon_admin`, `username`, `password`, `foto_admin`) VALUES
-(1, 'Helena J.Pakpahan', '6282164304676', 'helena_j_pakpahan', '$2y$10$gJ75UK6IXAtlGI4h2I511e.uga6XGmrIIujynzh.myuSYhNQlcVVq', 'admin.jpg');
+INSERT INTO `admin` (`id_admin`, `nama_admin`, `nomor_telepon_admin`, `username`, `password`, `foto_admin`, `email`) VALUES
+(1, 'Helena J.Pakpahan', '6282164304676', 'helena_j_pakpahan', 'Bakery123', 'admin.jpg', 'bakerypizzaetniktoba@gmail.com');
 
 -- --------------------------------------------------------
 

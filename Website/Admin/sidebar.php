@@ -43,7 +43,7 @@
         <li class="nav-item">
             <a class="nav-link collapsed" href="petunjuk.php">
             <i class="bi bi-sign-turn-slight-right-fill"></i>
-                <span>Petunjuk Pemesanan</span>
+                <span>Petunjuk Pesanan</span>
             </a>
         </li><!-- End Contact Page Nav -->
 

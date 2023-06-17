@@ -14,6 +14,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kategori</title>
     <link rel="stylesheet" href="style.css">
+  <link href="../../Pictures/PET.png" rel="icon">
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">

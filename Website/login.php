@@ -41,7 +41,7 @@ require 'koneksi/functions.php';
     <title>Login</title>
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 
-    <link rel="icon" href="../pict/PET.png" type="image/jpg" />
+    <link rel="icon" href="../pictures/PET.png" type="image/jpg" />
   </head>
   <body>
     <section>
@@ -63,6 +63,7 @@ require 'koneksi/functions.php';
               <input type="password" name="password" required placeholder="Password" />
             </div>
             <button name="login">Log in</button>
+            <center><a href="lupa_password.php" style="color:white;">Lupa Password?</a></center>
           </form>
         </div>
       </div>
