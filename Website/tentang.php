@@ -75,7 +75,7 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                <?php echo $row['judul_prestasi'] ?>
+                <p style="font-family: 'Reem Kufi Fun', sans-serif;"><b><?php echo $row['judul_prestasi'] ?></b></p>
               </button>
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
@@ -85,7 +85,7 @@
                     <img class="pres" src="../pictures/<?php echo $row['gambar_prestasi'] ?>" alt="">
                   </div>
                   <div class="col-lg-10">
-                    <?php echo $row['deskripsi_prestasi'] ?>
+                  <p style="font-family: 'Poppins';"><?php echo $row['deskripsi_prestasi'] ?></p>
                   </div>
                 </div>
               </div>
@@ -96,7 +96,7 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $row['id_prestasi'] ?>" aria-expanded="false" aria-controls="collapse<?php echo $row['id_prestasi'] ?>">
-                <?php echo $row['judul_prestasi'] ?>
+              <p style="font-family: 'Reem Kufi Fun', sans-serif;"><b><?php echo $row['judul_prestasi'] ?></b></p>
               </button>
             </h2>
             <div id="collapse<?php echo $row['id_prestasi'] ?>" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -106,7 +106,7 @@
                     <img class="pres" src="../pictures/<?php echo $row['gambar_prestasi'] ?>" alt="">
                   </div>
                   <div class="col-lg-10">
-                    <?php echo $row['deskripsi_prestasi'] ?>
+                    <p style="font-family: 'Poppins';"><?php echo $row['deskripsi_prestasi'] ?></p>
                   </div>
                 </div>
               </div>
@@ -134,7 +134,7 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                <?php echo $row['judul_sertifikat'] ?>
+                <p style="font-family: 'Reem Kufi Fun', sans-serif;"><b><?php echo $row['judul_sertifikat'] ?></b></p>
               </button>
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
@@ -144,7 +144,7 @@
                     <img class="pres" src="../pictures/<?php echo $row['gambar_sertifikat'] ?>" alt="">
                   </div>
                   <div class="col-lg-10">
-                    <?php echo $row['deskripsi_sertifikat'] ?>
+                      <p style="font-family: 'Poppins';"><?php echo $row['deskripsi_sertifikat'] ?></p>
                   </div>
                 </div>
               </div>
@@ -155,7 +155,7 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $row['id_sertifikat'] ?>" aria-expanded="false" aria-controls="collapse<?php echo $row['id_sertifikat'] ?>">
-                <?php echo $row['judul_sertifikat'] ?>
+              <p style="font-family: 'Reem Kufi Fun', sans-serif;"><b><?php echo $row['judul_sertifikat'] ?></b></p>
               </button>
             </h2>
             <div id="collapse<?php echo $row['id_sertifikat'] ?>" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -165,7 +165,7 @@
                     <img class="pres" src="../pictures/<?php echo $row['gambar_sertifikat'] ?>" alt="">
                   </div>
                   <div class="col-lg-10">
-                    <?php echo $row['deskripsi_sertifikat'] ?>
+                  <p style="font-family: 'Poppins';"><?php echo $row['deskripsi_sertifikat'] ?></p>
                   </div>
                 </div>
               </div>
