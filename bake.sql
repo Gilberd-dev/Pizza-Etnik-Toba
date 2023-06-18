@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3307:3307
--- Generation Time: Jun 17, 2023 at 09:26 PM
+-- Host: 127.0.0.1:3307
+-- Generation Time: Jun 18, 2023 at 02:56 PM
 -- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- PHP Version: 8.0.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,7 +44,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_admin`, `nama_admin`, `nomor_telepon_admin`, `username`, `password`, `foto_admin`, `email_admin`, `kode`, `status`) VALUES
-(1, 'Helena J.Pakpahan', '6282164304676', 'helena_j_pakpahan', '$2y$10$58O/MCc5K.s0k45f0r2Fj.lzXoboyf3V6eqYSqLLDR2QkmHqoF/ve', 'admin.jpg', 'helenajpakpahan@gmail.com', 0, 'verified');
+(1, 'Helena J.Pakpahan', '6282164304676', 'helena_j_pakpahan', '$2y$10$VgLsDE4LaxX5mZau2zVX2evPrh5atWrBo.4.Txd5zou9SPENHLeQ2', 'admin.jpg', 'helenajpakpahan@gmail.com', 0, 'verified');
 
 -- --------------------------------------------------------
 
@@ -88,8 +88,7 @@ INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `status`) VALUES
 (1, 'Makanan', 'Aktif'),
 (2, 'Minuman', 'Aktif'),
 (3, 'Roti dan Kue', 'Aktif'),
-(4, 'ice cream', 'Aktif'),
-(6, 'ice creamm', 'Nonaktif');
+(4, 'ice cream', 'Nonaktif');
 
 -- --------------------------------------------------------
 
@@ -210,7 +209,7 @@ INSERT INTO `produk` (`id_produk`, `nama_produk`, `harga_produk`, `gambar_produk
 (25, 'Capcay', 25000, 'capcay.jpg', 'Aktif', 1, 1, 'Capcay adalah masakan Tionghoa-Indonesia yang terdiri dari campuran sayuran yang diolah dengan cara tumis.'),
 (26, 'Pancake Durian', 25000, 'durian.jpg', 'Aktif', 1, 1, 'Pancake durian dibuat dengan mencampurkan daging durian yang matang dengan adonan pancake.'),
 (27, 'Ayam Penyet', 25000, 'penyet.jpg', 'Aktif', 1, 1, 'Ayam penyet adalah hidangan khas Indonesia yang terdiri dari ayam yang dimasak dengan bumbu rempah-rempah khas.'),
-(30, 'Ice cream choco', 5000, 'ice cream.jpeg', 'Aktif', 4, 1, 'wuenak');
+(30, 'Ice cream choco', 5000, 'ice cream.jpg', 'Aktif', 4, 1, 'wuenak');
 
 -- --------------------------------------------------------
 
