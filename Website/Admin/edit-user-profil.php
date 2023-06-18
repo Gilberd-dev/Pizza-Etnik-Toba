@@ -86,13 +86,19 @@ session_start();
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Nama</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="nama_admin" value="<?php echo $data['nama_admin']; ?>">
+                                    <input type="text" class="form-control" name="nama_admin" value="<?php echo $data['nama_admin']; ?>" required>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Nomor Telepon</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="nomor_telepon" value="<?php echo $data['nomor_telepon_admin']; ?>">
+                                    <input type="text" class="form-control" name="nomor_telepon" value="<?php echo $data['nomor_telepon_admin']; ?>"required>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">Email</label>
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" name="email" value="<?php echo $data['email_admin']; ?>"required>
                                 </div>
                             </div>
                             <div class="row mb-3">

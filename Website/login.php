@@ -63,7 +63,7 @@ require 'koneksi/functions.php';
               <input type="password" name="password" required placeholder="Password" />
             </div>
             <button name="login">Log in</button>
-            <center><a href="lupa_password.php" style="color:white;">Lupa Password?</a></center>
+            <center><a href="verifikasi_email.php" style="color:white;">Lupa Password?</a></center>
           </form>
         </div>
       </div>

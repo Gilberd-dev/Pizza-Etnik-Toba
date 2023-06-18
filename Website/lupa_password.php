@@ -1,40 +1,117 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lupa Password</title>
-    <link rel="icon" href="../pictures/PET.png" type="image/jpg" />
-    <link rel="stylesheet" href="../css/forgot.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  </head>
-  <body>
-    <!-- <div class="mb-3">
-      <form action="cek_email.php" method="post"> 
-        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" name="email" placeholder="name@example.com"> 
-        <button type="submit" class="btn btn-primary">Check Email</button>
-      </form>
-    </div> -->
-    <div class="popup">
-      <form class="form" action="cek_email.php" method="post">
-      <div class="icon" style="margin-left:100px;">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 34 34" height="34" width="34">
-            <path stroke-linejoin="round" stroke-width="2.5" stroke="#115DFC" d="M7.08385 9.91666L5.3572 11.0677C4.11945 11.8929 3.50056 12.3055 3.16517 12.9347C2.82977 13.564 2.83226 14.3035 2.83722 15.7825C2.84322 17.5631 2.85976 19.3774 2.90559 21.2133C3.01431 25.569 3.06868 27.7468 4.67008 29.3482C6.27148 30.9498 8.47873 31.0049 12.8932 31.1152C15.6396 31.1838 18.3616 31.1838 21.1078 31.1152C25.5224 31.0049 27.7296 30.9498 29.331 29.3482C30.9324 27.7468 30.9868 25.569 31.0954 21.2133C31.1413 19.3774 31.1578 17.5631 31.1639 15.7825C31.1688 14.3035 31.1712 13.564 30.8359 12.9347C30.5004 12.3055 29.8816 11.8929 28.6437 11.0677L26.9171 9.91666"></path>
-            <path stroke-linejoin="round" stroke-width="2.5" stroke="#115DFC" d="M2.83331 14.1667L12.6268 20.0427C14.7574 21.3211 15.8227 21.9603 17 21.9603C18.1772 21.9603 19.2426 21.3211 21.3732 20.0427L31.1666 14.1667"></path>
-            <path stroke-width="2.5" stroke="#115DFC" d="M7.08331 17V8.50001C7.08331 5.82872 7.08331 4.49307 7.91318 3.66321C8.74304 2.83334 10.0787 2.83334 12.75 2.83334H21.25C23.9212 2.83334 25.2569 2.83334 26.0868 3.66321C26.9166 4.49307 26.9166 5.82872 26.9166 8.50001V17"></path>
-            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" stroke="#115DFC" d="M14.1667 14.1667H19.8334M14.1667 8.5H19.8334"></path>
-          </svg>
-        </div>
-        <div class="note">
-          <label class="title">Lupa Password?</label>
-          <span class="subtitle">Masukkan Email yang sesuai dengan email anda untuk verifikasi Email.</span>
-        </div>
-        <input placeholder="Masukkan Email anda" name="email" type="email" class="input_field">
-        <button class="submit" type="submit">Submit</button>
-      </form>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-  </body>
-</html>
+<?php
+//Import PHPMailer classes into the global namespace
+//These must be at the top of your script, not inside a function
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+//Load Composer's autoloader
+require 'vendor/vendor/autoload.php';
+include_once('koneksi/koneksi.php');
+
+//Create an instance; passing `true` enables exceptions
+$mail = new PHPMailer(true);
+
+try {
+    //Server settings
+    // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+    $mail->isSMTP();                                            //Send using SMTP
+    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+    $mail->Username   = 'pizzaetniktobabakery@gmail.com';                     //SMTP username
+    $mail->Password   = 'ajpridtgzknkloar';                               //SMTP password
+    // $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+    $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+    //Recipients
+    $kategori_query = "SELECT * FROM admin";
+    $kategori_result = mysqli_query($koneksi, $kategori_query);
+    $kategori = mysqli_fetch_assoc($kategori_result);
+    $mail->setFrom('pizzaetniktobabakery@gmail.com', 'Pizza Etnik Toba Bakery');
+    $mail->addAddress($kategori['email_admin'], 'Helena');     //Add a recipient
+    $mail->addReplyTo('pizzaetniktobabakery@gmail.com', 'Pizza Etnik Toba Bakery');
+    // $mail->addCC('cc@example.com');
+    // $mail->addBCC('bcc@example.com');
+
+    //Attachments
+    // $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
+    // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
+    if(isset($_POST['check-email'])){
+        $email = mysqli_real_escape_string($koneksi, $_POST['email']);
+        $check_email = "SELECT * FROM admin WHERE email_admin ='$email'";
+        $run_sql = mysqli_query($koneksi, $check_email);
+        if(mysqli_num_rows($run_sql) > 0){
+            $code = rand(999999, 111111);
+            $insert_code = "UPDATE admin SET kode = $code WHERE email_admin = '$email'";
+            $run_query =  mysqli_query($koneksi, $insert_code);
+                //Recipients
+    $mail->setFrom('pizzaetniktobabakery@gmail.com', 'Pizza Etnik Toba Bakery');
+    $mail->addAddress($kategori['email_admin'], 'Helena');     //Add a recipient
+    $mail->addReplyTo('pizzaetniktobabakery@gmail.com', 'Pizza Etnik Toba Bakery');
+    //Content
+    $mail->isHTML(true);                                  //Set email format to HTML
+    $mail->Subject = 'Kode Mengatur Ulang Password';
+    $mail->Body    = '<p>kode untuk mengatur ulang password anda adalah </p>'.$code;
+    $mail->send();
+    echo "<script>window.location='verifikasi_kode.php';</script>";}
+    $error = true;
+}
+} catch (Exception $e) {
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+}
+
+// verifikasi kode
+$info = true;
+
+if(isset($_POST['verifikasi'])){
+        $otp_code = mysqli_real_escape_string($koneksi, $_POST['otp']);
+        $check_code = "SELECT * FROM admin WHERE kode = $otp_code";
+        $code_res = mysqli_query($koneksi, $check_code);
+        if(mysqli_num_rows($code_res) > 0){
+            $fetch_data = mysqli_fetch_assoc($code_res);
+            $fetch_code = $fetch_data['kode'];
+            $email = $fetch_data['email_admin'];
+            $code = 0;
+            $status = 'verified';
+            $update_otp = "UPDATE admin SET kode = $code, status = '$status' WHERE kode = $fetch_code";
+            $update_res = mysqli_query($koneksi, $update_otp);
+            if($update_res){
+                $_SESSION['name'] = $name;
+                $_SESSION['email'] = $email;
+                header('location: reset_password.php');
+                exit();
+            }else{
+                $errors['otp-error'] = "Failed while updating code!";
+            }
+        }else{
+            $error = true;
+        }
+    }
+
+    // reset password
+    if(isset($_POST['change-password'])){
+        $_SESSION['info'] = "";
+        $password = mysqli_real_escape_string($koneksi, $_POST['password_baru']);
+        $cpassword = mysqli_real_escape_string($koneksi, $_POST['password_konfirmasi']);
+        if($password !== $cpassword){
+            $error = true;
+        }else{
+            $code = 0;
+            $email = $_SESSION['email']; //getting this email using session
+            $kategori_query = "SELECT * FROM admin";
+            $kategori_result = mysqli_query($koneksi, $kategori_query);
+            $kategori = mysqli_fetch_assoc($kategori_result);
+            $encpass = password_hash($password,PASSWORD_DEFAULT);
+            $email_asli = $kategori['email_admin'];
+            $update_pass = "UPDATE admin SET password = '$encpass', kode='$code' WHERE email_admin = '$email_asli'";
+            $run_query = mysqli_query($koneksi, $update_pass);
+            if($run_query){
+                $info = "Your password changed. Now you can login with your new password.";
+                $_SESSION['info'] = $info;
+                header('Location: login.php');
+            }else{
+                $errors['db-error'] = "Failed to change your password!";
+            }
+        }
+    }
+    ?>

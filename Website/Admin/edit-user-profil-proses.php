@@ -5,6 +5,7 @@ include '../koneksi/koneksi.php';
   $id = $_POST['id'];
   $nama = $_POST['nama_admin'];
   $nomor_telepon = $_POST['nomor_telepon'];
+  $email = $_POST['email'];
   $foto_admin = $_FILES['gambar'];
   $foto_lama=$_POST['gambar_lama'];
   //tangkap gambar
@@ -18,10 +19,10 @@ include '../koneksi/koneksi.php';
   // menyimpan gambar secara permanen
   move_uploaded_file($img_tmp, '../../pictures/'.$img_name);
 
-  $query  = "UPDATE admin SET nama_admin= '$nama', nomor_telepon_admin = '$nomor_telepon', foto_admin = '$img_name'";
+  $query  = "UPDATE admin SET nama_admin= '$nama', nomor_telepon_admin = '$nomor_telepon', email_admin = '$email', foto_admin = '$img_name'";
 
 }else{
-$query  = "UPDATE admin SET nama_admin= '$nama', nomor_telepon_admin = '$nomor_telepon'";
+$query  = "UPDATE admin SET nama_admin= '$nama', nomor_telepon_admin = '$nomor_telepon', email_admin = '$email'";
 }
  $query .= "WHERE id_admin = '$id'";
  $result = mysqli_query($koneksi, $query);

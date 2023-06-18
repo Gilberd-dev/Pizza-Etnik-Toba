@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3307
--- Generation Time: Jun 17, 2023 at 05:35 AM
+-- Host: localhost:3307:3307
+-- Generation Time: Jun 17, 2023 at 09:26 PM
 -- Server version: 10.4.27-MariaDB
--- PHP Version: 8.0.25
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,17 +32,19 @@ CREATE TABLE `admin` (
   `nama_admin` varchar(50) NOT NULL,
   `nomor_telepon_admin` varchar(13) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `password` varchar(250) NOT NULL,
+  `password` varchar(500) NOT NULL,
   `foto_admin` varchar(200) NOT NULL,
-  `email` varchar(255) NOT NULL
-) ;
+  `email_admin` varchar(255) NOT NULL,
+  `kode` int(11) NOT NULL,
+  `status` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id_admin`, `nama_admin`, `nomor_telepon_admin`, `username`, `password`, `foto_admin`, `email`) VALUES
-(1, 'Helena J.Pakpahan', '6282164304676', 'helena_j_pakpahan', 'Bakery123', 'admin.jpg', 'bakerypizzaetniktoba@gmail.com');
+INSERT INTO `admin` (`id_admin`, `nama_admin`, `nomor_telepon_admin`, `username`, `password`, `foto_admin`, `email_admin`, `kode`, `status`) VALUES
+(1, 'Helena J.Pakpahan', '6282164304676', 'helena_j_pakpahan', '$2y$10$58O/MCc5K.s0k45f0r2Fj.lzXoboyf3V6eqYSqLLDR2QkmHqoF/ve', 'admin.jpg', 'helenajpakpahan@gmail.com', 0, 'verified');
 
 -- --------------------------------------------------------
 
@@ -56,7 +58,7 @@ CREATE TABLE `carousel` (
   `deskripsi_carousel` text DEFAULT NULL,
   `gambar_carousel` varchar(255) NOT NULL,
   `id_admin` int(11) NOT NULL DEFAULT 1
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `carousel`
@@ -64,8 +66,7 @@ CREATE TABLE `carousel` (
 
 INSERT INTO `carousel` (`id_carousel`, `judul_carousel`, `deskripsi_carousel`, `gambar_carousel`, `id_admin`) VALUES
 (1, '', '', 'banner1.jpg', 1),
-(2, '', '', 'banner2.jpg', 1),
-(6, '', '', 'banner3.jpg', 1);
+(2, '', '', 'banner2.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -87,7 +88,8 @@ INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `status`) VALUES
 (1, 'Makanan', 'Aktif'),
 (2, 'Minuman', 'Aktif'),
 (3, 'Roti dan Kue', 'Aktif'),
-(7, 'Ice Cream', 'Nonaktif');
+(4, 'ice cream', 'Aktif'),
+(6, 'ice creamm', 'Nonaktif');
 
 -- --------------------------------------------------------
 
@@ -104,15 +106,15 @@ CREATE TABLE `masukan` (
   `gambar_video_masukan` varchar(255) NOT NULL,
   `status_masukan` enum('Diizinkan','Diblokir') NOT NULL DEFAULT 'Diizinkan',
   `id_admin` int(11) NOT NULL DEFAULT 1
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `masukan`
 --
 
 INSERT INTO `masukan` (`id_masukan`, `nama_pengunjung`, `email_pengunjung`, `teks_masukan`, `tanggal_post_masukan`, `gambar_video_masukan`, `status_masukan`, `id_admin`) VALUES
-(1, 'Aldv', 'Alvind7@gmail.com', 'Pizzanya enakk andalimannya berasa khas banget. Keju mozzarella mereka nggak pelit. Minumannya juga enak dengan package bisa dibawa sambil jalan. ', '2023-06-11 06:32:06', 'aldv.png', 'Diizinkan', 1),
-(2, 'Roela Amri', 'Roelaamri15@gmail.com', 'Banana green smoothies  nya cakep . Dekat dari kota Balige', '2023-06-11 06:32:05', 'roela_amri.jpg', 'Diizinkan', 1),
+(1, 'Aldv', 'Alvind7@gmail.com', 'Pizzanya enakk andalimannya berasa khas banget. Keju mozzarella mereka nggak pelit. Minumannya juga enak dengan package bisa dibawa sambil jalan. ', '2023-06-06 10:13:58', 'aldv.png', 'Diizinkan', 1),
+(2, 'Roela Amri', 'Roelaamri15@gmail.com', 'Banana green smoothies  nya cakep . Dekat dari kota Balige', '2023-05-03 09:05:08', 'roela_amri.jpg', 'Diizinkan', 1),
 (14, 'Adolf Hitler', 'schlachten@gmail.com', 'Die Rindfleisch-Rendang-Pizza ist großartig', '2023-06-07 02:58:00', 'rensapi.jpg', 'Diizinkan', 1),
 (15, 'Abraham Lincoln', 'lincoln@gmail.com', 'wowww.. so good', '2023-06-07 03:01:15', 'cap.jpg', 'Diizinkan', 1),
 (16, 'Willem Daendels', 'daendels@gmail.com', 'I love the kebab, so good, i like it', '2023-06-07 03:06:56', 'kebbbbbb.jpg', 'Diizinkan', 1);
@@ -134,11 +136,11 @@ CREATE TABLE `petunjuk` (
 
 INSERT INTO `petunjuk` (`id_petunjuk`, `deskripsi`) VALUES
 (1, 'Tekan tombol Pesan Sekarang'),
-(2, 'Pilih produk yang ingin dipesan\r\n'),
-(3, 'Isi formulir pemesanan dengan data asli\r\n'),
-(4, 'Tekan tombol Periksa untuk memeriksa pesanan\r\n'),
-(5, 'Pastikan Daftar Pesanan dan Informasi Pembeli sudah sesuai\r\n'),
-(8, 'Tekan tombol kirim, maka pesanan anda akan dilanjutkan di aplikasi WhatsApp');
+(2, 'Pilih produk yang ingin dipesan'),
+(3, 'Isi formulir pemesanan dengan data asli'),
+(4, 'Tekan tombol Periksa untuk memeriksa pesanan'),
+(6, 'Pastikan Daftar Pesanan dan Informasi Pembeli sudah sesuai\r\n'),
+(9, 'Tekan tombol kirim, maka pesanan anda akan dilanjutkan di aplikasi WhatsApp');
 
 -- --------------------------------------------------------
 
@@ -152,15 +154,15 @@ CREATE TABLE `prestasi` (
   `deskripsi_prestasi` varchar(255) NOT NULL,
   `gambar_prestasi` varchar(255) NOT NULL,
   `id_admin` int(11) NOT NULL DEFAULT 1
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `prestasi`
 --
 
 INSERT INTO `prestasi` (`id_prestasi`, `judul_prestasi`, `deskripsi_prestasi`, `gambar_prestasi`, `id_admin`) VALUES
-(2, 'Pelatihan Tata Boga', 'Sebagai instruktur pelatihan tata boga kegiatan pendidikan dan pelatihan keterampilan bagi pencari kerja program peningkatan kualitas tenaga kerja', 'pres2.jpg', 1),
-(4, 'Festival Danau Toba', 'Peserta dan pemenang kategori makanan unik dalam Festival Danau Toba tahun 2016, yang diadakan di Muara - Tapanuli Utara', 'prestasi1.jpg', 1);
+(1, 'Festival Danau Toba', 'Peserta dan pemenang kategori makanan unik dalam Festival Danau Toba tahun 2016, yang diadakan di Muara - Tapanuli Utara', 'prestasi1.jpg', 1),
+(2, 'Pelatihan Tata Boga', 'Sebagai instruktur pelatihan tata boga kegiatan pendidikan dan pelatihan keterampilan bagi pencari kerja program peningkatan kualitas tenaga kerja', 'pres2.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -177,7 +179,7 @@ CREATE TABLE `produk` (
   `id_kategori` int(11) NOT NULL,
   `id_admin` int(11) NOT NULL DEFAULT 1,
   `deskripsi_produk` text DEFAULT NULL
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `produk`
@@ -208,7 +210,7 @@ INSERT INTO `produk` (`id_produk`, `nama_produk`, `harga_produk`, `gambar_produk
 (25, 'Capcay', 25000, 'capcay.jpg', 'Aktif', 1, 1, 'Capcay adalah masakan Tionghoa-Indonesia yang terdiri dari campuran sayuran yang diolah dengan cara tumis.'),
 (26, 'Pancake Durian', 25000, 'durian.jpg', 'Aktif', 1, 1, 'Pancake durian dibuat dengan mencampurkan daging durian yang matang dengan adonan pancake.'),
 (27, 'Ayam Penyet', 25000, 'penyet.jpg', 'Aktif', 1, 1, 'Ayam penyet adalah hidangan khas Indonesia yang terdiri dari ayam yang dimasak dengan bumbu rempah-rempah khas.'),
-(32, 'Ice Cream', 15000, 'ice cream.jpg', 'Aktif', 7, 1, 'Ice cream yang terbuat dari coklat asli. Lembut dan Nikmat....');
+(30, 'Ice cream choco', 5000, 'ice cream.jpeg', 'Aktif', 4, 1, 'wuenak');
 
 -- --------------------------------------------------------
 
@@ -222,7 +224,7 @@ CREATE TABLE `sertifikat` (
   `deskripsi_sertifikat` varchar(255) NOT NULL,
   `gambar_sertifikat` varchar(255) NOT NULL,
   `id_admin` int(11) NOT NULL DEFAULT 1
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `sertifikat`
@@ -230,7 +232,7 @@ CREATE TABLE `sertifikat` (
 
 INSERT INTO `sertifikat` (`id_sertifikat`, `judul_sertifikat`, `deskripsi_sertifikat`, `gambar_sertifikat`, `id_admin`) VALUES
 (2, 'Sertifikat Produksi Pangan Industri Rumah Tangga', 'Sertifikat PIRT atau yang lebih dikenal dengan Sertifikat Produksi Pangan Industri Rumah Tangga (SPP-IRT) merupakan jaminan tertulis yang diberikan oleh Bupati atau Walikota terhadap hasil produksi IRT yang memenuhi syarat dan standar.', 'pirt.jpg', 1),
-(5, 'Sertifikat Halal', 'berlaku selama 5 tahun ( 2023-2028)', 'halal.jpg', 1);
+(5, 'Sertifikat Halal', 'sertifikat halal dalam 5 tahun kedepan ( 2023-2028)', 'halal2.jpeg', 1);
 
 --
 -- Indexes for dumped tables
@@ -247,22 +249,19 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `carousel`
   ADD PRIMARY KEY (`id_carousel`),
-  ADD UNIQUE KEY `uk_carousel` (`gambar_carousel`),
   ADD KEY `id_admin` (`id_admin`);
 
 --
 -- Indexes for table `kategori`
 --
 ALTER TABLE `kategori`
-  ADD PRIMARY KEY (`id_kategori`),
-  ADD UNIQUE KEY `uk_kategori` (`nama_kategori`);
+  ADD PRIMARY KEY (`id_kategori`);
 
 --
 -- Indexes for table `masukan`
 --
 ALTER TABLE `masukan`
   ADD PRIMARY KEY (`id_masukan`),
-  ADD UNIQUE KEY `uk_masukan` (`gambar_video_masukan`),
   ADD KEY `id_admin` (`id_admin`);
 
 --
@@ -276,7 +275,6 @@ ALTER TABLE `petunjuk`
 --
 ALTER TABLE `prestasi`
   ADD PRIMARY KEY (`id_prestasi`),
-  ADD UNIQUE KEY `uk_prestasi` (`gambar_prestasi`),
   ADD KEY `id_admin` (`id_admin`);
 
 --
@@ -284,8 +282,6 @@ ALTER TABLE `prestasi`
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`id_produk`),
-  ADD UNIQUE KEY `uk_nama_produk` (`nama_produk`),
-  ADD UNIQUE KEY `uk_gambar_produk` (`gambar_produk`),
   ADD KEY `id_kategori` (`id_kategori`),
   ADD KEY `id_admin` (`id_admin`);
 
@@ -294,7 +290,6 @@ ALTER TABLE `produk`
 --
 ALTER TABLE `sertifikat`
   ADD PRIMARY KEY (`id_sertifikat`),
-  ADD UNIQUE KEY `uk_sertifikat` (`gambar_sertifikat`),
   ADD KEY `id_admin` (`id_admin`);
 
 --
@@ -305,49 +300,49 @@ ALTER TABLE `sertifikat`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `carousel`
 --
 ALTER TABLE `carousel`
-  MODIFY `id_carousel` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_carousel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `masukan`
 --
 ALTER TABLE `masukan`
-  MODIFY `id_masukan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_masukan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `petunjuk`
 --
 ALTER TABLE `petunjuk`
-  MODIFY `id_petunjuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_petunjuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `prestasi`
 --
 ALTER TABLE `prestasi`
-  MODIFY `id_prestasi` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_prestasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `sertifikat`
 --
 ALTER TABLE `sertifikat`
-  MODIFY `id_sertifikat` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_sertifikat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

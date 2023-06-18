@@ -123,10 +123,16 @@ session_start();
                     <div class="col-lg-3 col-md-4 label">No. Telp</div>
                     <div class="col-lg-9 col-md-8"><?php echo  $row['nomor_telepon_admin'];?></div>
                   </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label ">Email</div>
+                    <div class="col-lg-9 col-md-8"><?php echo  $row['email_admin'];?></div>
+                  </div>
+
                 </div>
 
                 <a href="edit-user-profil.php?id=<?php echo $row['id_admin']; ?>&gambar=<?php echo $row['foto_admin'];?>"><button type="submit" class="btn btn-primary">Edit Profil</button></a>
-
+                <a href="ubah_password.php?id=<?php echo $row['id_admin']; ?>"><button type="submit" class="btn btn-success">Ubah Password</button></a>
 
                <!-- edit  -->
 
